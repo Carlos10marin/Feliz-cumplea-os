@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños, Mi Amor ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            z-index: 10;
+        }
+
+        /* Pantalla Inicial */
+        .card-start {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        p.intro {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .btn-open {
+            background-color: #ff4b5c;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 75, 92, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-open:hover {
+            transform: scale(1.05);
+            background-color: #e03e4e;
+        }
+
+        /* Carta Oculta */
+        .letter-container {
+            display: none;
+            background: #ffffff;
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            animation: fadeIn 1.2s ease-in-out forwards;
+            text-align: left;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .letter-title {
+            color: #d63384;
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .letter-body {
+            color: #444;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            white-space: pre-line;
+        }
+
+        .signature {
+            text-align: right;
+            font-weight: bold;
+            color: #ff4b5c;
+            font-size: 1.1rem;
+        }
+
+        /* Corazones Animados */
+        .heart {
+            position: fixed;
+            top: -10vh;
+            font-size: 1.5rem;
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- PANTALLA INICIAL -->
+        <div id="startCard" class="card-start">
+            <h1>Tengo un mensaje especial para ti 💌</h1>
+            <p class="intro">Haz clic en el botón para abrir.</p>
+            <button class="btn-open" onclick="openLetter()">Abrir con amor ❤️</button>
+        </div>
+
+        <!-- CARTA DESPLEGABLE -->
+        <div id="letter" class="letter-container">
+            <h2 class="letter-title">¡Feliz Cumpleaños, Mi Amor! 🎉✨</h2>
+            <div class="letter-body">
+Mi mujer, mi novia, mi amor, mi vida, mi cielo, mi corazón, mi reina, mi mamasita, mi todo. Agradezco mucho a Dios por ponerte en mi vida y permitirme compartir contigo tantos momentos y poder estar junto a ti en cada uno de ellos, por haberte acompañado en tantos logros, tantas metas, tantas hazañas, tantos desafíos que superaste. Te felicito, y no soy quien para decirlo pero me enorgullece todo eso.
+
+Eres una mujer fuerte, valiente, noble, resiliente, inteligente, mágica, alegre, risueña, dulce, cariñosa, atrevida, tierna, encantadora y única. 
+Y ni hablar de físico, simplemente perfecta.
+Me encanta todo de ti. 
+
+Eres una mujer maravillosa, una novia espectacular, una amiga increíble, te admiro mucho. Me hace muy feliz estar junto a ti y haber coincidido con una persona tan bella como tú, saber que tengo una novia así me hace sentir muy afortunado.
+
+Espero poder estar junto a ti muchos años más y construir algo muy bonito a tu lado y acompañarte y apoyarte en todo lo que hagas y te propongas. Prometo estar ahí para ti siempre. Yo contigo si a todo. TODO. Lo quiero todo contigo. 
+
+Te deseo un muy feliz cumpleaños, espero que sea un día espectacular, no solo hoy, sino todos los días. 
+
+Te quiero demasiado.
+            </div>
+            <p class="signature">Con todo mi amor, siempre ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        function openLetter() {
+            // Ocultar pantalla inicial
+            document.getElementById('startCard').style.display = 'none';
+            
+            // Mostrar carta
+            document.getElementById('letter').style.display = 'block';
+            
+            // Lanzar lluvia de corazones
+            createHeartRain();
+        }
+
+        function createHeartRain() {
+            const hearts = ['❤️', '💖', '💗', '💕', '🌸', '✨'];
+            for (let i = 0; i < 35; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => { heart.remove(); }, 5000);
+                }, i * 150);
+            }
+        }
+    </script>
+</body>
+</html>
